@@ -1,5 +1,6 @@
 const path = require("path");
 const merge = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const common = require("./webpack.common");
 
@@ -16,5 +17,10 @@ module.exports = merge(common, {
         use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html"
+    })
+  ]
 });
